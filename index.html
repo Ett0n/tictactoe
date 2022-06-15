@@ -19,11 +19,23 @@
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
+      <div class="turn-info"></div>
     </div>
+
     <div class="winning-message" id="winningMessage">
       <div id="winningMessageText"></div>
-      <button id="restartButton">Nouvelle partie</button>
+      <button id="restartButton">New game</button>
+      <button id="changePlayers">Change players</button>
     </div>
+
+    <form action="" class="winning-message show" id="formAddPlayer">
+      <label for="name">Add players: </label>
+      <div>
+        <input type="text" placeholder="Player name" id="playerInput" />
+        <button id="nextPlayerBtn">Add player</button>
+      </div>
+      <button id="anonymousBtn">Play anonymous</button>
+    </form>
     <script src="main.js"></script>
   </body>
 </html>
