@@ -159,7 +159,7 @@ const win = (gagnant) => {
   $winMessText.innerHTML = `<h2>${gagnant} won ! Well done  !</h2>`;
 };
 
-//listen $board pour plasser les classes sur les divs enfant
+//listen $board pour placer les classes sur les divs enfant
 $board.addEventListener("click", (e) => {
   if (e.target.classList.contains("x") || e.target.classList.contains("circle")) {
     return;
