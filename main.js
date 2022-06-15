@@ -1,3 +1,4 @@
+//DOM
 const $board = document.querySelector("#board");
 
 const $cells = document.querySelectorAll(".cell");
@@ -19,14 +20,18 @@ const $form = document.querySelector("#formAddPlayer");
 const $playerInput = $form.querySelector("#playerInput");
 const $nextPlayerBtn = $form.querySelector("#nextPlayerBtn");
 
-let $turnMsg = document.querySelector(".turn-info");
+const $turnMsg = document.querySelector(".turn-info");
 
+//true = tour de (o), false = tour de (x)
 let turn;
+
+//retiens le nom des joueurs
 let joueurCroix = "";
 let joueurRond = "";
 
-//permet de switch entre la croix et le rond
+//permet de switch entre le tour de croix et rond (return x ou circle)
 const toggleTurn = () => {
+  //switch
   turn ? (turn = false) : (turn = true);
   if (turn) {
     $board.classList.add("circle");
@@ -41,7 +46,7 @@ const toggleTurn = () => {
   }
 };
 
-//player form
+//player form, solicite les joueurs à entrer leurs noms
 const playerForm = () => {
   $form.classList.add("show");
   $nextPlayerBtn.innerHTML = "Add player X";
@@ -86,6 +91,7 @@ const init = () => {
   turn ? $board.classList.add("circle") : $board.classList.add("x");
 };
 
+//liste les conditions de victoire du board
 const winCondition = () => {
   //-----------------ROWS----------------
   //ROW a victory X
@@ -153,7 +159,7 @@ const winCondition = () => {
     $winMessText.innerHTML = "<h2>It's a draw !</h2>";
   }
 };
-
+//permet l'affichage de l'écran de fin de partie
 const win = (gagnant) => {
   $winMess.classList.add("show");
   $winMessText.innerHTML = `<h2>${gagnant} won ! Well done  !</h2>`;
@@ -170,6 +176,7 @@ $board.addEventListener("click", (e) => {
   }
 });
 
+//Menu fin de partie - Permet de recommencer une partie ou de changer le nom des joueurs
 document.querySelector("#restartButton").addEventListener("click", (e) => {
   init();
 });
@@ -180,5 +187,6 @@ document.querySelector("#changePlayers").addEventListener("click", (e) => {
   init();
 });
 
+//first load, lance le formulaire de joueur, initialise la partie
 playerForm();
 init();
